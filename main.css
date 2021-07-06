@@ -1,0 +1,34 @@
+textarea{
+    width: 100%;
+    background-color: #1e1e1e;
+    font-size: 16px;
+    border: none;
+    color: #ffffff;
+}
+body{
+    background-color: #333;
+    font-size: 18px;
+    font-family: 'Arial';
+    color: #ffffff;
+}
+.accordion.active::before{
+    content: '\25bc  '
+}
+.accordion:not(.active)::before{
+    content: '\25b6  ';
+}
+.accordion::before{
+    font-size: 12px;
+}
+.header{
+    width: 100%;
+    height: 30px;
+    padding: none;
+    font-size: 20px;
+}
+.header-item {
+    width: 200px;
+    height: 30px;
+    float: left;
+    padding: 5px;
+}

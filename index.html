@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Stuff Online</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <script>
+        const $ = x => document.getElementById(x)
+        const DSO = {
+            defineMode(name,run){
+                this.modes[name] = run;
+                this.activeMode = {
+                    name: name,
+                    run: run
+                }
+            },
+            modes: {},
+            loadMode(id){
+                if(this.modes[id]){
+                    this.activeMode = {
+                        name: id,
+                        run: this.modes[id] 
+                    }
+                } else {
+                    console.log(modeList,id)
+                    import(modeList[id]);
+                }
+            },
+            activeMode: '',
+            run(){
+                $('output').value = '';
+                $('debug').value = '';
+                this.activeMode.run(
+                    $('header').value + $('code').value + $('footer').value,
+                    $('input').value,
+                    $('flags').value,
+                    val => $('output').value += val,
+                    val => $('debug').value += val
+                )
+                if($('output').value) toggle($('output',1))
+            },
+            selectLanguage(val=location.hash.slice(1)){
+                this.loadMode(val);
+                location.hash = val;
+            }
+        }
+        fetch('./langs.json').then(x=> x.json().then(v => modeList = v) ).then(_=>{DSO.selectLanguage()})
+        function init(){
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    var panel = this.nextElementSibling;
+                    var disp = panel.style.display;
+                    if (disp === "block") {
+                        this.classList.remove("active");
+                        panel.style.display = "none";
+                    } else {
+                        this.classList.add("active");
+                        panel.style.display = "block";
+                    }
+                });
+                acc[i].click()
+                acc[i].click()
+            }
+            this.toggle = (elem,open=0) => {
+                var panel = elem.previousElementSibling;
+                    var disp = elem.style.display;
+                    if ((disp === "none" && open !== 2) || open == 1) {
+                        panel.classList.add("active");
+                        elem.style.display = "block";
+                        resize(elem)
+                    } else {
+                        panel.classList.remove("active");
+                        elem.style.display = "none";
+                    }
+            }
+            this.resize = (elem) =>{
+                elem.style.height = "";
+                elem.style.height = elem.scrollHeight - 4 + "px";
+            }
+            [...document.querySelectorAll('p.accordion+textarea')].map(elem => {
+		        elem.addEventListener('input',_ => resize(elem))
+            });
+            window.addEventListener('resize', _ => {
+                [...document.querySelectorAll('p.accordion+textarea')].map(resize);
+            })
+        }
+        window.addEventListener('load',init)
+    </script>
+    <header class="header">
+        <div class=header-item>Do Stuff Online</div>
+        <div class=header-item onclick="DSO.run()">Run</div>
+        <div class=header-item>Select language<br><select oninput="DSO.selectLanguage(this.value)">
+            <option value='s10k'>s10k</option>
+        </select></div>
+        <div class=header-item>Do Stuff Online</div>
+        <div class=header-item>Do Stuff Online</div>
+
+    </header>
+    <p class=accordion>Flags</p>
+    <textarea id=flags ></textarea>
+    <p class=accordion>Header</p>
+    <textarea id=header></textarea>
+    <p class=accordion id=bytebox>Code (0 bytes)</p>
+    <textarea id=code></textarea>
+    <p class=accordion>Footer</p>
+    <textarea id=footer></textarea>
+    <p class=accordion>Input</p>
+    <textarea id=input></textarea>
+    <p class=accordion>Output</p>
+    <textarea id=output readonly></textarea>
+    <p class=accordion>Debug</p>
+    <textarea id=debug readonly></textarea>
+</body>
+</html>
