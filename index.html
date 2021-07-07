@@ -41,7 +41,7 @@
                     val => $('output').value += val,
                     val => $('debug').value += val
                 )
-                if($('output').value) toggle($('output',1))
+                /*if($('output').value)*/ toggle($('output'),1)
             },
             selectLanguage(val=location.hash.slice(1)){
                 this.loadMode(val);
@@ -70,7 +70,13 @@
             this.toggle = (elem,open=0) => {
                 var panel = elem.previousElementSibling;
                     var disp = elem.style.display;
-                    if ((disp === "none" && open !== 2) || open == 1) {
+                    if(open){
+                        panel.classList.add("active");
+                        elem.style.display = "block";
+                        resize(elem)
+                        return;
+                    }
+                    if (disp === "none") {
                         panel.classList.add("active");
                         elem.style.display = "block";
                         resize(elem)
@@ -96,6 +102,13 @@
         <div class=header-item>Do Stuff Online</div>
         <div class=header-item onclick="DSO.run()" style="cursor: pointer;">Run</div>
         <div class=header-item>Select language<br><select oninput="DSO.selectLanguage(this.value)">
+            <option value='deadfish'>Deadfish</option>
+            <option value='deadfish-2'>Deadfish 2</option>
+            <option value='deadfish-x'>Deadfish x</option>
+            <option value='deadfish-tilde'>Deadfish~</option>
+            <option value='functional-deadfish'>Functional Deadfish</option>
+            <option value='functional-deadfish-tilde'>Functional Deadfish~</option>
+            <option value='print-deadfish'>print "deadfish"</option>
             <option value='s10k'>s10k</option>
         </select></div>
         <div class=header-item>Do Stuff Online</div>

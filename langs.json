@@ -1,3 +1,10 @@
 {
-    "s10k":"./s10k.js"
+    "deadfish": "./langs/deadfish.js",
+    "deadfish-2": "./langs/deadfish-2.js",
+    "deadfish-x": "./langs/deadfish-x.js",
+    "deadfish-tilde": "./langs/deadfish-tilde.js",
+    "functional-deadfish": "./langs/functional-deadfish.js",
+    "functional-deadfish-tilde": "./langs/functional-deadfish-tilde.js",
+    "print-deadfish": "./langs/print-deadfish.js",
+    "s10k":"./langs/s10k.js"
 }
