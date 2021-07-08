@@ -48,7 +48,7 @@
                 location.hash = val;
             }
         }
-        fetch('./langs.json').then(x=> x.json().then(v => modeList = v) ).then(_=>{DSO.selectLanguage()})
+        fetch('./langs.json').then(x=> x.json().then(v => modeList = v) ).then(_=>{ DSO.selectLanguage() })
         function init(){
             var acc = document.getElementsByClassName("accordion");
             var i;
@@ -102,12 +102,16 @@
         <div class=header-item>Do Stuff Online</div>
         <div class=header-item onclick="DSO.run()" style="cursor: pointer;">Run</div>
         <div class=header-item>Select language<br><select oninput="DSO.selectLanguage(this.value)">
-            <option value='deadfish'>Deadfish</option>
+            <option value='chiqrsx9+'>CHIQRSX9+</option>
+            <option value='deadfish' selected>Deadfish</option>
             <option value='deadfish-2'>Deadfish 2</option>
             <option value='deadfish-x'>Deadfish x</option>
             <option value='deadfish-tilde'>Deadfish~</option>
             <option value='functional-deadfish'>Functional Deadfish</option>
             <option value='functional-deadfish-tilde'>Functional Deadfish~</option>
+            <option value='hq9+'>HQ9+</option>
+            <option value='hq9+f'>HQ9+F</option>
+            <option value='hq9+-tilde'>HQ9+~</option>
             <option value='print-deadfish'>print "deadfish"</option>
             <option value='s10k'>s10k</option>
         </select></div>

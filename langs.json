@@ -1,10 +1,14 @@
 {
-    "deadfish": "./langs/deadfish.js",
-    "deadfish-2": "./langs/deadfish-2.js",
-    "deadfish-x": "./langs/deadfish-x.js",
-    "deadfish-tilde": "./langs/deadfish-tilde.js",
-    "functional-deadfish": "./langs/functional-deadfish.js",
-    "functional-deadfish-tilde": "./langs/functional-deadfish-tilde.js",
-    "print-deadfish": "./langs/print-deadfish.js",
+    "chiqrsx9+": "./langs/hq9+/CHIQRSX9+.js",
+    "deadfish": "./langs/deadfish/deadfish.js",
+    "deadfish-2": "./langs/deadfish/deadfish-2.js",
+    "deadfish-x": "./langs/deadfish/deadfish-x.js",
+    "deadfish-tilde": "./langs/deadfish/deadfish-tilde.js",
+    "functional-deadfish": "./langs/deadfish/functional-deadfish.js",
+    "functional-deadfish-tilde": "./langs/deadfish/functional-deadfish-tilde.js",
+    "hq9+": "./langs/hq9+/hq9+.js",
+    "hq9+f": "./langs/hq9+/hq9+f.js",
+    "hq9+-tilde": "./langs/hq9+/hq9+-tilde.js",
+    "print-deadfish": "./langs/deadfish/print-deadfish.js",
     "s10k":"./langs/s10k.js"
 }
