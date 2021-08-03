@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <script src="tio-api/util.js"></script>
+    <script src="tio-api/tio.js"></script>
+    <script src="tio-api/dso2tio.js"></script>
     <script>
         const $ = x => document.getElementById(x)
         const DSO = {
@@ -46,7 +49,23 @@
             selectLanguage(val=location.hash.slice(1)){
                 this.loadMode(val);
                 location.hash = val;
-            }/*
+            },
+
+            langNotFound(lang) {
+                console.error(`Language '${lang}' not found.`);
+                return "undefined";
+            },
+            
+            makeLink(header, code, footer, input, lang, flags) {
+                return TIO.makeLink(header, code, footer, input, lang, flags);
+            },
+
+            parseLink(link) {
+                var parsed = TIO.parseLink(link);
+                parsed.languageId = tio2dso[parsed.languageId] || DSO.langNotFound(parsed.languageId);
+                return parsed;
+            }
+            /*
             createPermalink(){
                 return new Blob([JSON.stringify([DSO.activeMode.name, $('header').value,$('code').value,$('footer').value,$('input').value,$('flags').value])])
 	                .stream()
