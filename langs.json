@@ -1,4 +1,5 @@
 {
+    "brainfuck": "./langs/bf.js",
     "chiqrsx9+": "./langs/hq9+/CHIQRSX9+.js",
     "deadfish": "./langs/deadfish/deadfish.js",
     "deadfish-2": "./langs/deadfish/deadfish-2.js",
@@ -10,5 +11,6 @@
     "hq9+f": "./langs/hq9+/hq9+f.js",
     "hq9+-tilde": "./langs/hq9+/hq9+-tilde.js",
     "print-deadfish": "./langs/deadfish/print-deadfish.js",
-    "s10k":"./langs/s10k.js"
+    "s10k":"./langs/s10k.js",
+    "fishing": "./langs/fishing.js"
 }

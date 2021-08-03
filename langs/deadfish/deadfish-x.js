@@ -8,9 +8,9 @@ DSO.defineMode('deadfish-x',(code,input,args,output,debug) => {
         if(char == 'd') acc--;
         if(char == 'c') acc *= acc;
         if(char == 'k') output(acc + join)
-        if(char == 'X') funcs[code[++i]] = code.slice(i,code.indexOf('C',i))
+        if(char == 'X') funcs[code[++i]] = code.slice(i,i=code.indexOf('C',i),i++)
         if(char == 'K') output(String.fromCharCode(acc))
-        if(char == 'C') code = code.slice(0,i) + funcs[code[++i]] + code.slice(i--+1)
+        if(char == 'C') code = code.slice(0,i) + funcs[code[i+1]] + code.slice(i--+1)
         if(char == 'D') acc = 0;
         if(acc >= 256 || acc < 0) acc = 0;
     }

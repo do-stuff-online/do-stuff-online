@@ -46,8 +46,27 @@
             selectLanguage(val=location.hash.slice(1)){
                 this.loadMode(val);
                 location.hash = val;
-            }
+            }/*
+            createPermalink(){
+                return new Blob([JSON.stringify([DSO.activeMode.name, $('header').value,$('code').value,$('footer').value,$('input').value,$('flags').value])])
+	                .stream()
+	                .getReader()
+	                .read()
+	                .then(z=>[...z.value].map(BigInt))
+	                .then(z=>z.reduce((a,b)=>a*256n+b))
+	                .then(z=>{for(a=[];z>0;z/=94n)a.push(z%94n);return a.reverse()})
+                    .then(z=>z.map(Number).map(x=>String.fromCharCode(x+33)).join``)
+            }*/
         }
+        /*
+        DSO.createPermalink()
+//.then(z=>[...z].map(k=>BigInt(k.charCodeAt()-33)))
+//.then(z=>{for(a=0n,i=0;i<z.length;i++)a=a*94n+z.reverse()[i]; return a})
+/*.then(n=>{for(a=[];n>0;n/=256n)a.push(n%256n);return a})
+  .then(z=>[new Uint8Array(z.map(Number))])
+  .then(console.log)
+  TODO: What's wrong?
+        */
         fetch('./langs.json').then(x=> x.json().then(v => modeList = v) ).then(_=>{ DSO.selectLanguage() })
         function init(){
             var acc = document.getElementsByClassName("accordion");
@@ -102,11 +121,13 @@
         <div class=header-item>Do Stuff Online</div>
         <div class=header-item onclick="DSO.run()" style="cursor: pointer;">Run</div>
         <div class=header-item>Select language<br><select oninput="DSO.selectLanguage(this.value)">
+            <option value='brainfuck'>Brainfuck</option>
             <option value='chiqrsx9+'>CHIQRSX9+</option>
             <option value='deadfish' selected>Deadfish</option>
             <option value='deadfish-2'>Deadfish 2</option>
             <option value='deadfish-x'>Deadfish x</option>
             <option value='deadfish-tilde'>Deadfish~</option>
+            <option value='fishing'>Fishing</option>
             <option value='functional-deadfish'>Functional Deadfish</option>
             <option value='functional-deadfish-tilde'>Functional Deadfish~</option>
             <option value='hq9+'>HQ9+</option>
