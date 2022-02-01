@@ -1,4 +1,4 @@
-DSO.defineMode('brainfuck',(code,input,args,output,debug) => {
+DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
     var tape = [0],tapeIndex = 0,tapeLimit = Infinity,cellLimit = 256,inputIndex = 0,brackets = [];
     if(args.includes('6')) cellLimit = 65536;
     if(args.includes('t')) tapeLimit = 256;
@@ -22,6 +22,7 @@ DSO.defineMode('brainfuck',(code,input,args,output,debug) => {
         if(char == '<'){
             tapeIndex--;
             if(tapeIndex == -1){
+                debug('Warning: Pointer fallen of left end of tape, yeeted onto right end\n')
                 if(tape.length > tapeLimit){
                     tapeIndex = tape.length - 1
                 } else {

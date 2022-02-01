@@ -1,4 +1,4 @@
-DSO.defineMode('print-deadfish',(code,input,args,output,debug) => {
+DSO.defineMode('print-deadfish', async (code,input,args,output,debug) => {
     var join = '', acc = 0;
     if(args.includes('n')) join = '\n';
     if(args.includes('s')) join = ' ';

@@ -1,4 +1,4 @@
-DSO.defineMode('functional-deadfish',(code,input,args,output,debug) => {
+DSO.defineMode('functional-deadfish', async (code,input,args,output,debug) => {
     var join = '',acc = 0, func_stack = [];
     if(args.includes('n')) join = '\n';
     if(args.includes('s')) join = ' ';

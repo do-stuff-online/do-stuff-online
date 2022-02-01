@@ -1,4 +1,4 @@
-DSO.defineMode('deadfish-tilde',(code,input,args,output,debug) => {
+DSO.defineMode('deadfish-tilde', async (code,input,args,output,debug) => {
     var join = '', acc = 0,execute = true;
     function findMatch(string,index,[open,close]){
         var depth = 1;

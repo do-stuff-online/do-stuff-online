@@ -1,16 +1,109 @@
 {
-    "brainfuck": "./langs/bf.js",
-    "chiqrsx9+": "./langs/hq9+/CHIQRSX9+.js",
-    "deadfish": "./langs/deadfish/deadfish.js",
-    "deadfish-2": "./langs/deadfish/deadfish-2.js",
-    "deadfish-x": "./langs/deadfish/deadfish-x.js",
-    "deadfish-tilde": "./langs/deadfish/deadfish-tilde.js",
-    "functional-deadfish": "./langs/deadfish/functional-deadfish.js",
-    "functional-deadfish-tilde": "./langs/deadfish/functional-deadfish-tilde.js",
-    "hq9+": "./langs/hq9+/hq9+.js",
-    "hq9+f": "./langs/hq9+/hq9+f.js",
-    "hq9+-tilde": "./langs/hq9+/hq9+-tilde.js",
-    "print-deadfish": "./langs/deadfish/print-deadfish.js",
-    "s10k":"./langs/s10k.js",
-    "fishing": "./langs/fishing.js"
+    "brainfuck": {
+        "interpreter": "./langs/bf.js",
+        "name": "brainfuck",
+        "link": "https://esolangs.org/wiki/Brainfuck"
+    },
+    "chiqrsx9+": {
+        "interpreter": "./langs/hq9+/CHIQRSX9+.js",
+        "name": "CHIQRSX9+",
+        "link": "https://esolangs.org/wiki/CHIQRSX9+"
+    },
+    "deadfish": {
+        "interpreter": "./langs/deadfish/deadfish.js",
+        "name": "Deadfish",
+        "link": "https://esolangs.org/wiki/Deadfish"
+    },
+    "deadfish-2": {
+        "interpreter": "./langs/deadfish/deadfish-2.js",
+        "name": "Deadfish 2",
+        "link": "https://esolangs.org/wiki/Deadfish-2"
+    },
+    "deadfish-x": {
+        "interpreter": "./langs/deadfish/deadfish-x.js",
+        "name": "Deadfish x",
+        "link": "https://esolangs.org/wiki/Deadfish-x"
+    },
+    "deadfish-tilde": {
+        "interpreter": "./langs/deadfish/deadfish-tilde.js",
+        "name": "Deadfish~",
+        "link": "https://esolangs.org/wiki/Deadfish~"
+    },
+    "functional-deadfish": {
+        "interpreter": "./langs/deadfish/functional-deadfish.js",
+        "name": "Functional Deadfish",
+        "link": "https://esolangs.org/wiki/Functional_Deadfish"
+    },
+    "functional-deadfish-tilde": {
+        "interpreter": "./langs/deadfish/functional-deadfish-tilde.js",
+        "name": "Functional Deadfish~",
+        "link": "https://esolangs.org/wiki/Functional_Deadfish~"
+    },
+    "hq9+": {
+        "interpreter": "./langs/hq9+/hq9+.js",
+        "name": "HQ9+",
+        "link": "https://esolangs.org/wiki/HQ9+"
+    },
+    "hq9+f": {
+        "interpreter": "./langs/hq9+/hq9+f.js",
+        "name": "HQ9+F",
+        "link": "https://esolangs.org/wiki/HQ9+F"
+    },
+    "hq9+-tilde": {
+        "interpreter": "./langs/hq9+/hq9+-tilde.js",
+        "name": "HQ9+~",
+        "link": "https://esolangs.org/wiki/HQ9+~"
+    },
+    "print-deadfish": {
+        "interpreter": "./langs/deadfish/print-deadfish.js",
+        "name": "Print \"deadfish\"",
+        "link": "https://esolangs.org/wiki/Print_\"deadfish\""
+    },
+    "s10k": {
+        "interpreter": "./langs/s10k.js",
+        "name": "S10K",
+        "link": "https://bubbler-4.github.io/TryInBrowser#%40UzEwSw%3D%3D/%40/%40/%40"
+    },
+    "fishing": {
+        "interpreter": "./langs/fishing.js",
+        "name": "Fishing",
+        "link": "https://esolangs.org/wiki/Fishing"
+    },
+    "in-floop": {
+        "interpreter": "./langs/in-floop.js",
+        "name": "In Floop",
+        "link": "https://github.com/redwolfprograms/in-floop"
+    },
+    "risky": {
+        "interpreter": "./langs/risky.js",
+        "name": "Risky",
+        "link": "https://github.com/redwolfprograms/risky",
+        "bytecount": "./bytecounters/risky.js"
+    },
+    "ultrarisky": {
+        "interpreter": "./langs/ultrarisky.js",
+        "name": "Ultrarisky",
+        "link": "https://gist.github.com/RedwolfPrograms/956683d03be5a318b0d15e5af3e199e7",
+        "bytecount": "./bytecounters/ultrarisky.js"
+    },
+    "unsure": {
+        "interpreter": "./langs/unsure.js",
+        "name": "Unsure",
+        "link": "https://github.com/RedwolfPrograms/unsure"
+    },
+    "dotcomma": {
+        "interpreter": "./langs/dotcomma.js",
+        "name": "Dotcomma",
+        "link": "https://github.com/RedwolfPrograms/dotcomma"
+    },
+    "plumber": {
+        "interpreter": "./langs/plumber.js",
+        "name": "Plumber",
+        "link": "https://github.com/RedwolfPrograms/plumber"
+    },
+    "tarfish": {
+        "interpreter": "./langs/tarfish.js",
+        "name": "Tarfish",
+        "link": "https://github.com/chunkybanana/Tarfish"
+    }
 }

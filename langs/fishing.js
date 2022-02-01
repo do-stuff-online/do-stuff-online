@@ -1,5 +1,15 @@
-DSO.defineMode('fishing',(code,input,args,output,debug) => {
-    let x = 0, y = 0, dir = 0, stack = [''], codebox = code.split`\n`, castlength = 0, cell = 0, castdir = 0, textmode = false,inputs = input.split`\n`.map(z=>+z==+z?+z:z), pop = _ => inputs.push(_ = inputs.shift())&&_;
+DSO.defineMode('fishing',async (code,input,args,output,debug) => {
+    let x = 0, 
+    y = 0, 
+    dir = 0, 
+    stack = [''], 
+    codebox = code.split`\n`, 
+    castlength = 0, 
+    cell = 0, 
+    castdir = 0, 
+    textmode = false,
+    inputs = input.split`\n`.map(z=>+z==+z?+z:z),
+    pop = _ => inputs.push(_ = inputs.shift())&&_;
     const dock_chars = 'CD|_[]<^>v?!=+-';
     while(dock_chars.includes(codebox[y][x])){
         let char = codebox[y][x]
@@ -78,7 +88,7 @@ DSO.defineMode('fishing',(code,input,args,output,debug) => {
                         stack[cell] = res;
                     }
                     if(fish == 'l') stack.push(stack.length)
-                    if(fish == 'n') stack[cell] = -stack[cell];
+                    if(fish == 'f') stack[cell] = -stack[cell];
                     if(fish == 's') stack.push(...stack[cell])
                     if(fish == 'c') stack.push(stack[cell] + (stack[cell+1] || ''))
                 }
