@@ -4,6 +4,7 @@ textarea{
     font-size: 16px;
     border: none;
     color: #ffffff;
+    font-family: 'DejaVu Sans Mono';
 }
 body{
     background-color: #333;
@@ -57,4 +58,8 @@ body{
 }
 .header-icon {
     font-size: 20px !important;
+}
+@font-face {
+    font-family: "DejaVu Sans Mono";
+    src: url('DejaVuSansMono.ttf');
 }

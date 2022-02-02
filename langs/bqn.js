@@ -5,6 +5,6 @@ DSO.defineMode('bqn', async (code,input,args,output,debug) => {
     try {
         output(fmt(bqn(code)))
     } catch(ex) { 
-        debug(ex)
+        debug(`${ex.kind} Error: ${ex.message[1].join``}`)
     }
 })
