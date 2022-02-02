@@ -6,7 +6,7 @@ DSO.defineMode('bqn', async (code,input,args,output,debug) => {
         output(fmt(bqn(code)))
     } catch(ex) { 
         try {
-            debug(`${ex.kind} Error: ${ex.message[1]?.join?.('') ?? ex.message?.join?.('')}`)
+            debug(`${ex.kind} Error: ${ex.message[1]?.join?.('') ?? ex.message.join('')}`)
         } catch {
             debug('This program throws an error whose message is misdecoded. Add an issue on the github repo or ping me.')
         }
