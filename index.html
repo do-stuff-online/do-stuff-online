@@ -73,7 +73,8 @@
                     DSO.loadMode(parsed[0])
                     updateByteCount()
                 } else {
-                    DSO.loadMode(hash || 'brainfuck');   
+                    DSO.loadMode(hash || 'brainfuck');  
+                    location.hash = '#' + hash 
                 }
             },
 
