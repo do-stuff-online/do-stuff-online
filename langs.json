@@ -4,6 +4,11 @@
       "name": "brainfuck",
       "link": "https://esolangs.org/wiki/Brainfuck"
     },
+    "bqn": {
+      "interpreter": "./langs/bqn.js",
+      "name": "BQN",
+      "link": "https://github.com/mlochbaum/BQN/"
+    },
     "chiqrsx9+": {
       "interpreter": "./langs/hq9+/CHIQRSX9+.js",
       "name": "CHIQRSX9+",
