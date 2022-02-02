@@ -42,7 +42,7 @@
                 $('homepage-link').href = mode.link;
                 $('select').value = id;
             },
-            activeMode: '',
+            activeMode: {},
             async run(){
                 let runButton = $('run-button');
                 if(runButton.innerHTML.includes('fa-spin')) return;
@@ -72,8 +72,7 @@
                     $('flags').value = parsed[5]
                     DSO.loadMode(parsed[0])
                 } else {
-                    DSO.loadMode(hash);
-                    //location.hash = hash;
+                    DSO.loadMode(hash || 'brainfuck');   
                 }
             },
 
@@ -173,6 +172,14 @@
             $('code').addEventListener('input', updateByteCount)
             $('code').addEventListener('change', updateByteCount)
             updateByteCount()
+            $('code').addEventListener('keydown', e => {
+                if(e.ctrlKey || e.metaKey){
+                    if(e.key == 'Enter'){
+                        e.preventDefault();
+                        DSO.run();
+                    }
+                }
+            })
         }
         window.addEventListener('load',init)
         function createLink(type){
