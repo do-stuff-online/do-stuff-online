@@ -71,6 +71,7 @@
                     $('input').value = parsed[4]
                     $('flags').value = parsed[5]
                     DSO.loadMode(parsed[0])
+                    updateByteCount()
                 } else {
                     DSO.loadMode(hash || 'brainfuck');   
                 }
