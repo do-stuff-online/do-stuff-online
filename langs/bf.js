@@ -15,7 +15,7 @@ DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
         ',': 'tape[tapeIndex] = input.shift().charCodeAt()',
     }
     let transpiled = '';
-    for(char of code){
+    for(let char of code){
         if(char in codeTable){
             transpiled += codeTable[char] + '\n'
         }
