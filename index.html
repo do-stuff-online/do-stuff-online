@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="main.css">
     <script src="https://kit.fontawesome.com/646af2e33b.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <script>
         const $ = x => document.getElementById(x)
         const DSO = {
-            defineMode(name,run){
+            defineMode(name, run) {
                 this.modes[name] = run;
                 this.activeMode = {
                     name: name,
@@ -20,12 +22,12 @@
                 }
             },
             modes: {},
-            async loadMode(id){
+            async loadMode(id) {
                 mode = modeList[id]
                 let counter;
-                if(!this.modes[id]){
+                if (!this.modes[id]) {
                     await import(mode.interpreter);
-                    if(mode.bytecount){
+                    if (mode.bytecount) {
                         counter = await import(mode.bytecount)
                         mode.bytecount = counter.count
                     }
@@ -33,19 +35,19 @@
                 this.activeMode = {
                     id: id,
                     ...mode,
-                    run: this.modes[id] 
+                    run: this.modes[id]
                 }
-                if(mode.bytecount){
+                if (mode.bytecount) {
                     this.activeMode.bytecount = mode.bytecount;
-                    updateByteCount()
                 }
+                updateByteCount()
                 $('homepage-link').href = mode.link;
                 $('select').value = id;
             },
             activeMode: {},
-            async run(){
+            async run() {
                 let runButton = $('run-button');
-                if(runButton.innerHTML.includes('fa-spin')) return;
+                if (runButton.innerHTML.includes('fa-spin')) return;
                 runButton.innerHTML = '<i class="fa fa-cog fa-spin fa-2x"></i>';
                 console.log(runButton, runButton.innerHTML)
                 $('output').value = '';
@@ -58,12 +60,12 @@
                     val => ($('debug').value += val, resize($('debug')))
                 )
                 runButton.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';
-                toggle($('output'),1)
-                toggle($('debug'),1)
+                toggle($('output'), 1)
+                toggle($('debug'), 1)
             },
-            selectLanguage(hash = location.hash.slice(1)){
+            selectLanguage(hash = location.hash.slice(1)) {
                 console.log(hash)
-                if(hash[0] == '@') {
+                if (hash[0] == '@') {
                     let parsed = this.decode(location.hash.slice(2))
                     $('header').value = parsed[1]
                     $('code').value = parsed[2]
@@ -73,7 +75,7 @@
                     DSO.loadMode(parsed[0])
                     updateByteCount()
                 } else {
-                    DSO.loadMode(hash || 'brainfuck');   
+                    DSO.loadMode(hash || 'brainfuck');
                 }
             },
 
@@ -81,14 +83,14 @@
                 console.error(`Language '${lang}' not found.`);
                 return "undefined";
             },
-            
+
             makeLink() {
                 return location.origin + location.pathname + '#@' + DSO.encode([
                     DSO.activeMode.id,
                     $('header').value,
-                    $('code').value, 
-                    $('footer').value, 
-                    $('input').value, 
+                    $('code').value,
+                    $('footer').value,
+                    $('input').value,
                     $('flags').value
                 ])
             },
@@ -98,7 +100,7 @@
             },
 
             decode(str) {
-                if (str){
+                if (str) {
                     return JSON.parse(decodeURIComponent(escape(atob(str))));
                 } else {
                     return [];
@@ -106,28 +108,28 @@
             },
         }
         fetch('./langs.json')
-        .then(x => x.json())
-        .then(value => modeList = value)
-        .then(value => {
-            for(key in value){
-                let option = document.createElement('option');
-                option.value = key;
-                option.innerText = value[key].name;
-                $('select').appendChild(option);
-            }
-        })
-        .then(() => DSO.selectLanguage())
-        .then(() => {
-            for(let i of ['header', 'code', 'footer','input', 'flags'] ){
-                if($(i).value) toggle($(i),1)
-            }
-            if(!$('code').value) toggle($('code', 1))
-        })
-        function init(){
+            .then(x => x.json())
+            .then(value => modeList = value)
+            .then(value => {
+                for (key in value) {
+                    let option = document.createElement('option');
+                    option.value = key;
+                    option.innerText = value[key].name;
+                    $('select').appendChild(option);
+                }
+            })
+            .then(() => DSO.selectLanguage())
+            .then(() => {
+                for (let i of ['header', 'code', 'footer', 'input', 'flags']) {
+                    if ($(i).value) toggle($(i), 1)
+                }
+                if (!$('code').value) toggle($('code', 1))
+            })
+        function init() {
             var acc = document.getElementsByClassName("accordion");
             var i;
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+                acc[i].addEventListener("click", function () {
                     var panel = this.nextElementSibling;
                     var disp = panel.style.display;
                     if (disp === "block") {
@@ -141,10 +143,10 @@
                 acc[i].click()
                 acc[i].click()
             }
-            window.toggle = (elem,open=0) => {
+            window.toggle = (elem, open = 0) => {
                 var panel = elem.previousElementSibling;
                 var disp = elem.style.display;
-                if(open){
+                if (open) {
                     panel.classList.add("active");
                     elem.style.display = "block";
                     resize(elem)
@@ -164,8 +166,8 @@
                 elem.style.height = elem.scrollHeight - 4 + "px";
             }
             [...document.querySelectorAll('p.accordion+textarea')].map(elem => {
-		        elem.addEventListener('input',_ => resize(elem))
-                elem.addEventListener('change',_ => resize(elem))
+                elem.addEventListener('input', _ => resize(elem))
+                elem.addEventListener('change', _ => resize(elem))
             });
             window.addEventListener('resize', _ => {
                 [...document.querySelectorAll('p.accordion+textarea')].map(resize);
@@ -174,38 +176,38 @@
             $('code').addEventListener('change', updateByteCount)
             updateByteCount()
             $('code').addEventListener('keydown', e => {
-                if(e.ctrlKey || e.metaKey){
-                    if(e.key == 'Enter'){
+                if (e.ctrlKey || e.metaKey) {
+                    if (e.key == 'Enter') {
                         e.preventDefault();
                         DSO.run();
                     }
                 }
             })
         }
-        window.addEventListener('load',init)
-        function createLink(type){
+        window.addEventListener('load', init)
+        function createLink(type) {
             let link = DSO.makeLink();
-            if(type == 'markdown'){
+            if (type == 'markdown') {
                 link = `[Try It Online!](${link})`
-            } else if(type == 'codegolf'){
-                link = `# [${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}\n` + 
-                `\`\`\`\n${$('code').value}\n\`\`\`\n`+
-                `[Try It Online!](${link})`
-            } else if(type == 'html'){
+            } else if (type == 'codegolf') {
+                link = `# [${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}\n` +
+                    `\`\`\`\n${$('code').value}\n\`\`\`\n` +
+                    `[Try It Online!](${link})`
+            } else if (type == 'html') {
                 link = `<a href="${link}">Try It Online!</a>`
             }
             $('output').value = link;
             toggle($('output'), 1)
         }
-        function getByteCount(){
+        function getByteCount() {
             let text = $('code').value
-            if(DSO.activeMode.bytecount){
+            if (DSO.activeMode.bytecount) {
                 return DSO.activeMode.bytecount(text)
             } else {
                 return new Blob([text]).size
             }
         }
-        function updateByteCount(){
+        function updateByteCount() {
             $('bytecount').innerText = getByteCount();
             $('s').innerText = getByteCount() == 1 ? '' : 's'
         }
@@ -215,7 +217,8 @@
             <a class='large-text linkless' href=https://github.com/chunkybanana/do-stuff-online>DSO</a>
         </div>
 
-        <div title="Run!" id="run-button" class="header-item narrow-icon header-icon" onclick="DSO.run()" style="cursor: pointer;">
+        <div title="Run!" id="run-button" class="header-item narrow-icon header-icon" onclick="DSO.run()"
+            style="cursor: pointer;">
             <i class="fa fa-play-circle fa-2x" style="cursor: pointer;"></i>
         </div>
 
@@ -223,22 +226,26 @@
             <select id=select oninput="DSO.selectLanguage(this.value)"></select>
             <a id="homepage-link" target="_blank"><i class="fa fa-link size-12 linkless"></i></a>
         </div>
-        <div title="Generate Link" class="header-item narrow-icon header-icon"  onclick="createLink('link')" style="cursor: pointer;">
+        <div title="Generate Link" class="header-item narrow-icon header-icon" onclick="createLink('link')"
+            style="cursor: pointer;">
             <i class="fa fa-link fa-2x" style="cursor: pointer;"></i>
         </div>
-        <div title="Generate Code Golf Submission"  class="header-item narrow-icon header-icon" onclick="createLink('codegolf')" style="cursor: pointer;">
+        <div title="Generate Code Golf Submission" class="header-item narrow-icon header-icon"
+            onclick="createLink('codegolf')" style="cursor: pointer;">
             <i class="fas fa-medal fa-2x" style="cursor: pointer;"></i>
         </div>
-        <div title="Generate Markdown Link" class="header-item narrow-icon header-icon" onclick="createLink('markdown')" style="cursor: pointer;">
+        <div title="Generate Markdown Link" class="header-item narrow-icon header-icon" onclick="createLink('markdown')"
+            style="cursor: pointer;">
             <i class="fab fa-markdown fa-2x" style="cursor: pointer;"></i>
         </div>
-        <div title="Generate HTML Link" class="header-item narrow-icon header-icon" onclick="createLink('html')" style="cursor: pointer;">
+        <div title="Generate HTML Link" class="header-item narrow-icon header-icon" onclick="createLink('html')"
+            style="cursor: pointer;">
             <i class="fas fa-code fa-2x" style="cursor: pointer;"></i>
         </div>
 
     </header>
     <p class=accordion>Flags</p>
-    <textarea id=flags ></textarea>
+    <textarea id=flags></textarea>
     <p class=accordion>Header</p>
     <textarea id=header></textarea>
     <p class=accordion>Code (<span id=bytecount>0</span> byte<span id=s>s</span>)</p>
@@ -252,4 +259,5 @@
     <p class=accordion>Debug</p>
     <textarea id=debug readonly></textarea>
 </body>
+
 </html>
