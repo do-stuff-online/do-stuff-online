@@ -76,7 +76,7 @@
     },
     "ngn-apl": {
       "interpreter": "./langs/ngn-apl.js",
-      "name": "ngn/apl",
+      "name": "APL (ngn/apl)",
       "link": "https://github.com/abrudz/ngn-apl"
     },
     "plumber": {

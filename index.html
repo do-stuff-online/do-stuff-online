@@ -76,6 +76,7 @@
                     updateByteCount()
                 } else {
                     DSO.loadMode(hash || 'brainfuck');
+                    location.hash = '#' + hash 
                 }
             },
 
@@ -175,7 +176,7 @@
             $('code').addEventListener('input', updateByteCount)
             $('code').addEventListener('change', updateByteCount)
             updateByteCount()
-            $('code').addEventListener('keydown', e => {
+            window.addEventListener('keydown', e => {
                 if (e.ctrlKey || e.metaKey) {
                     if (e.key == 'Enter') {
                         e.preventDefault();
