@@ -88,8 +88,17 @@ body{
         width: 50px;
     }
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 526px){
     .header-icon {
         width: 40px;
+    }
+}
+#invisible-block {
+    display: none;
+    height: 50px
+}
+@media screen and (max-width: 375px) and (min-width: 326px){
+    #invisible-block {
+        display: block;
     }
 }
