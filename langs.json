@@ -100,6 +100,11 @@
       "name": "S10K",
       "link": "https://bubbler-4.github.io/TryInBrowser#%40UzEwSw%3D%3D/%40/%40/%40"
     },
+    "semicolon-hash": {
+      "interpreter": "./langs/imported/semicolon-hash.js",
+      "name": ";#",
+      "link": "https://codegolf.stackexchange.com/questions/121921/make-a-interpreter"
+    },
     "tarfish": {
       "interpreter": "./langs/tarfish.js",
       "name": "Tarfish",
