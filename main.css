@@ -5,7 +5,6 @@ textarea{
     border: none;
     color: #ffffff;
     font-family: 'DejaVu Sans Mono';
-    display: none
 }
 body{
     background-color: #333;
@@ -100,7 +99,7 @@ body{
 }
 @media screen and (max-width: 375px) { 
     .header {
-        height: 75px;
+        height: 75Hpx;
     }
 }
 @media screen and (max-width: 375px) and (min-width: 326px){

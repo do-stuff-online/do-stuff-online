@@ -45,8 +45,8 @@ const DSO = {
             val => ($('debug').value += val, resize($('debug')))
         )
         runButton.innerHTML = '<i class="fa fa-play-circle fa-2x"></i>';
-        toggle($('output'),1)
-        toggle($('debug'),1)
+        toggle($('output'),true)
+        toggle($('debug'),true)
     },
     selectLanguage(hash = location.hash.slice(1)){
         console.log(hash)

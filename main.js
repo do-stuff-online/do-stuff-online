@@ -13,9 +13,9 @@ fetch('./langs.json')
 .then(() => DSO.selectLanguage())
 .then(() => {
     for(let i of ['header', 'code', 'footer','input', 'flags'] ){
-        if($(i).value) toggle($(i),1)
+        if($(i).value) toggle($(i),true)
     }
-    if(!$('code').value) toggle($('code', 1))
+    if(!$('code').value) toggle($('code', true))
 })
 function init(){
     var acc = document.getElementsByClassName("accordion");
@@ -35,23 +35,14 @@ function init(){
         acc[i].click()
         acc[i].click()
     }
-    window.toggle = (elem,open=0) => {
-        var panel = elem.previousElementSibling;
-        var disp = elem.style.display;
+    window.toggle = (elem, open = false) => {
+        let details = elem.parentNode
         if(open){
-            panel.classList.add("active");
-            elem.style.display = "block";
-            resize(elem)
-            return;
-        }
-        if (disp === "none") {
-            panel.classList.add("active");
-            elem.style.display = "block";
-            resize(elem)
+            details.open = "true"
         } else {
-            panel.classList.remove("active");
-            elem.style.display = "none";
+            details.open = details.open ? "" : "true"
         }
+        resize(elem)
     }
     window.resize = (elem) => {
         elem.style.height = "";
@@ -89,7 +80,7 @@ function createLink(type){
         link = `<a href="${link}">Try It Online!</a>`
     }
     $('output').value = link;
-    toggle($('output'), 1)
+    toggle($('output'), true)
 }
 function getByteCount(){
     let text = $('code').value
