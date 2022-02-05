@@ -5,6 +5,7 @@ textarea{
     border: none;
     color: #ffffff;
     font-family: 'DejaVu Sans Mono';
+    display: none
 }
 body{
     background-color: #333;
