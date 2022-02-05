@@ -98,6 +98,11 @@ body{
     display: none;
     height: 50px
 }
+@media screen and (max-width: 375px) { 
+    .header {
+        height: 75px;
+    }
+}
 @media screen and (max-width: 375px) and (min-width: 326px){
     #invisible-block {
         display: block;
