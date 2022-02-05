@@ -30,7 +30,6 @@ body{
 }
 .header-item {
     width: 200px;
-    height: 40px;
     float: left;
     position: relative;
     padding: 5px;
@@ -56,10 +55,41 @@ body{
 .size-12 {
     font-size: 16px !important;
 }
-.header-icon {
-    font-size: 20px !important;
+
+.header-icon i {
+    font-size: 40px;
 }
 @font-face {
     font-family: "DejaVu Sans Mono";
     src: url('DejaVuSansMono.ttf');
+}
+@media screen and (max-width: 886px){
+    .large-text {
+        font-size: 30px;
+    }
+    .wider-icon {
+        width: 70px;
+    }
+    .header-icon i{
+        font-size: 25px;
+    }   
+    .header-icon {
+        width: 65px;
+    }
+}
+@media screen and (max-width: 683px){
+    .wider-icon {
+        display: none;
+    }
+    .header-icon i{
+        font-size: 20px;
+    }   
+    .header-icon {
+        width: 50px;
+    }
+}
+@media screen and (max-width: 500px){
+    .header-icon {
+        width: 40px;
+    }
 }
