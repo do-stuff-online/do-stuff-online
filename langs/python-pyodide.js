@@ -14,9 +14,13 @@ if(!window.pyodide){
     DSO.endLoad();
 }
 DSO.defineMode('python-pyodide', async (code, input, args, output, debug) => {
-    function py_repr(str){
-        return `"${str.replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/"/g,'\\"')}"`
+    try {
+        function py_repr(str){
+            return `"${str.replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/"/g,'\\"')}"`
+        }
+        pythonInput = input.split`\n`
+        pyodide.runPython(`exec(${py_repr(code)})`);
+    } catch(e){
+        debug(e)
     }
-    pythonInput = input.split`\n`
-    pyodide.runPython(`exec(${py_repr(code)})`);
 })
