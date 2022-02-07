@@ -48,12 +48,12 @@ function init(){
         elem.style.height = "";
         elem.style.height = elem.scrollHeight - 4 + "px";
     }
-    [...document.querySelectorAll('p.accordion+textarea')].map(elem => {
+    [...document.querySelectorAll('textarea')].map(elem => {
         elem.addEventListener('input',_ => resize(elem))
         elem.addEventListener('change',_ => resize(elem))
     });
     window.addEventListener('resize', _ => {
-        [...document.querySelectorAll('p.accordion+textarea')].map(resize);
+        [...document.querySelectorAll('textarea')].map(resize);
     })
     $('code').addEventListener('input', updateByteCount)
     $('code').addEventListener('change', updateByteCount)

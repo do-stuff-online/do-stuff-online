@@ -94,6 +94,11 @@
     "name": "Print \"deadfish\"",
     "link": "https://esolangs.org/wiki/Print_\"deadfish\""
   },
+  "python-pyodide": {
+    "interpreter": "./langs/python-pyodide.js",
+    "name": "Python 3 (pyodide)",
+    "link": "https://github.com/pyodide/pyodide"
+  },
   "risky": {
     "interpreter": "./langs/risky.js",
     "name": "Risky",

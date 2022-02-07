@@ -64,7 +64,12 @@ const DSO = {
             location.hash = '#' + hash 
         }
     },
-
+    startLoad(){
+        $('lang-loader').style.display = 'inline-block';
+    },
+    endLoad(){
+        $('lang-loader').style.display = 'none';
+    },
     langNotFound(lang) {
         console.error(`Language '${lang}' not found.`);
         return "undefined";
