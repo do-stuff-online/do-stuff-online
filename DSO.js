@@ -34,7 +34,6 @@ const DSO = {
         let runButton = $('run-button');
         if(runButton.innerHTML.includes('fa-spin')) return;
         runButton.innerHTML = '<i class="fa fa-cog fa-spin fa-2x"></i>';
-        console.log(runButton, runButton.innerHTML)
         $('output').value = '';
         $('debug').value = '';
         await this.activeMode.run(
@@ -49,7 +48,6 @@ const DSO = {
         toggle($('debug'),true)
     },
     selectLanguage(hash = location.hash.slice(1)){
-        console.log(hash)
         if(hash[0] == '@') {
             let parsed = this.decode(location.hash.slice(2))
             $('header').value = parsed[1]
