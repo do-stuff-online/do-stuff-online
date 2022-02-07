@@ -84,6 +84,11 @@
     "name": "Japt",
     "link": "https://github.com/ETHproductions/japt"
   },
+  "k-ok": {
+    "interpreter": "./langs/k-ok.js",
+    "name": "K (oK)",
+    "link": "https://github.com/JohnEarnest/ok"
+  },
   "plumber": {
     "interpreter": "./langs/plumber.js",
     "name": "Plumber",
