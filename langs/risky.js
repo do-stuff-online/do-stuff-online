@@ -11,8 +11,7 @@ DSO.defineMode('risky', async (code,input,args,output,debug) => {
                 )
                 .replace(/"(-?\d+)n"/g, (_, a) => a)
             )
-        }
-        output(result.toString())
+        } else output(result.toString())
     } catch(ex) { 
         debug(ex)
     }
