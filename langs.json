@@ -59,6 +59,12 @@
     "name": "Functional Deadfish~",
     "link": "https://esolangs.org/wiki/Functional_Deadfish~"
   },
+  "halfwit": {
+    "interpreter": "./langs/halfwit.js",
+    "name": "Halfwit",
+    "link": "https://github.com/chunkybanana/halfwit/",
+    "bytecount": "./bytecounters/halfwit.js"
+  },
   "hq9+": {
     "interpreter": "./langs/hq9+/hq9+.js",
     "name": "HQ9+",
