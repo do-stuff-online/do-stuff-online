@@ -12,5 +12,6 @@ DSO.defineMode('halfwit', async (code,input,args,output,debug) => {
         output(result)
     } catch(ex) { 
         debug(ex)
+        //console.log(ex)
     }
 })
