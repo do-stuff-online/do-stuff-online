@@ -7,7 +7,7 @@ DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
     let codeTable = {
         '+': 'tape[tapeIndex] = (tape[tapeIndex] + 1) % cellLimit',
         '-': 'tape[tapeIndex] = tape[tapeIndex] ? tape[tapeIndex] - 1 : cellLimit - 1',
-        '>': 'tapeIndex = (tapeIndex + 1) % tapeLimit',
+        '>': 'tapeIndex = (tapeIndex + 1) % tapeLimit; tape[tapeIndex] = tape[tapeIndex] || 0',
         '<': 'tapeIndex = tapeIndex ? tapeIndex - 1 : Number.isFinite(tapeLimit) ? tapeLimit - 1 : tape.unshift(0) && 0',
         '[': 'while(tape[tapeIndex]){',
         ']': '}',
@@ -17,7 +17,7 @@ DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
     let transpiled = '';
     for(let char of code){
         if(char in codeTable){
-            transpiled += codeTable[char] + '\n'
+            transpiled += codeTable[char] + ';'
         }
     }
     if(args.includes('c')) debug(transpiled);
