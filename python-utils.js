@@ -7,8 +7,8 @@ async function loadPyodide(){
         let pyodide = await loadPyodide({
             indexURL: "https://cdn.jsdelivr.net/pyodide/v0.19.0/full/",
             stdin: _ => pythonInput.shift() ?? eval('throw "out of input"'),
-            stdout: str => $('output').value += str,
-            stderr: str => $('debug').value += str
+            stdout: str => $('output').value += str + '\n',
+            stderr: str => $('debug').value += str + '\n'
         })
         console.log('python (pyodide) loaded in %d seconds', (Date.now() - time) / 1000)
         window.pyodide = pyodide
