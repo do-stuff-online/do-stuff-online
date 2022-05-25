@@ -1,9 +1,4 @@
 {
-  "ngn-apl": {
-    "interpreter": "./langs/ngn-apl.js",
-    "name": "APL (ngn/apl)",
-    "link": "https://github.com/abrudz/ngn-apl"
-  },
   "brainfuck": {
     "interpreter": "./langs/bf.js",
     "name": "brainfuck",
@@ -42,7 +37,7 @@
   "dotcomma": {
     "interpreter": "./langs/dotcomma.js",
     "name": "Dotcomma",
-    "link": "https://github.com/RedwolfPrograms/dotcomma"
+    "link": "https://github.com/radvylf/dotcomma"
   },
   "fishing": {
     "interpreter": "./langs/fishing.js",
@@ -83,7 +78,7 @@
   "in-floop": {
     "interpreter": "./langs/in-floop.js",
     "name": "In Floop",
-    "link": "https://github.com/redwolfprograms/in-floop"
+    "link": "https://github.com/radvylf/in-floop"
   },
   "japt": {
     "interpreter": "./langs/japt.js",
@@ -95,10 +90,15 @@
     "name": "K (oK)",
     "link": "https://github.com/JohnEarnest/ok"
   },
+  "ngn-apl": {
+    "interpreter": "./langs/ngn-apl.js",
+    "name": "APL (ngn/apl)",
+    "link": "https://github.com/abrudz/ngn-apl"
+  },
   "plumber": {
     "interpreter": "./langs/plumber.js",
     "name": "Plumber",
-    "link": "https://github.com/RedwolfPrograms/plumber"
+    "link": "https://github.com/radvylf/plumber"
   },
   "print-deadfish": {
     "interpreter": "./langs/deadfish/print-deadfish.js",
@@ -110,10 +110,15 @@
     "name": "Python 3 (pyodide)",
     "link": "https://github.com/pyodide/pyodide"
   },
+  "raisin-batwaffle": {
+    "interpreter": "./langs/raisin-batwaffle.js",
+    "name": "rSNBATWPL",
+    "link": "https://github.com/Radvylf/raisin-batwaffle"
+  },
   "risky": {
     "interpreter": "./langs/risky.js",
     "name": "Risky",
-    "link": "https://github.com/redwolfprograms/risky",
+    "link": "https://github.com/radvylf/risky",
     "bytecount": "./bytecounters/risky.js"
   },
   "s10k": {
@@ -134,13 +139,13 @@
   "ultrarisky": {
     "interpreter": "./langs/ultrarisky.js",
     "name": "Ultrarisky",
-    "link": "https://gist.github.com/RedwolfPrograms/956683d03be5a318b0d15e5af3e199e7",
+    "link": "https://gist.github.com/Radvylf/956683d03be5a318b0d15e5af3e199e7",
     "bytecount": "./bytecounters/ultrarisky.js"
   },
   "unsure": {
     "interpreter": "./langs/unsure.js",
     "name": "Unsure",
-    "link": "https://github.com/RedwolfPrograms/unsure"
+    "link": "https://github.com/radvylf/unsure"
   }
 }
   
