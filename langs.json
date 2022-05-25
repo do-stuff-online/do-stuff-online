@@ -110,6 +110,11 @@
     "name": "Python 3 (pyodide)",
     "link": "https://github.com/pyodide/pyodide"
   },
+  "raisin-batwaffle": {
+    "interpreter": "./langs/raisin-batwaffle.js",
+    "name": "rSNBATWPL",
+    "link": "https://github.com/Radvylf/rSNBATWPL"
+  },
   "risky": {
     "interpreter": "./langs/risky.js",
     "name": "Risky",
