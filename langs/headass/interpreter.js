@@ -1,4 +1,4 @@
-let console;
+let console, code;
 export function runCode (flags, codez, input, output) {
     console = {
         log: v => output(v + '\n')
