@@ -44,6 +44,11 @@
     "name": "Fishing",
     "link": "https://esolangs.org/wiki/Fishing"
   },
+  "fishq9+": {
+    "interpreter": "./langs/hq9+/fishq9+.js",
+    "name": "FISHQ9+",
+    "link": "https://esolangs.org/wiki/Fishq9+"
+  },
   "functional-deadfish": {
     "interpreter": "./langs/deadfish/functional-deadfish.js",
     "name": "Functional Deadfish",
