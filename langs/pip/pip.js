@@ -1,5 +1,5 @@
 await loadPyodide();
-
+DSO.startLoad();
 let files = (await (await fetch('/langs/pip/all.txt')).text()).split`\n`.filter(x => x);
 console.log(files)
 
@@ -13,17 +13,18 @@ let promises = [];
 for (let file of files) {
     promises.push(
         pyodide.runPythonAsync(`
-text = await fetch('/langs/pip/${file}')
+text = await fetch('https://raw.githubusercontent.com/dloscutoff/pip/master/${file}')
 text = await text.text()
 with open('${file}', "w") as f:
     f.write(text)
     `))
 }
 
-Promise.all(promises).then(_ => setTimeout(() => {
+Promise.all(promises).then(_ => {
     console.log('files written')
     pyodide.runPython(`import pip`)
-}, 1500))
+    DSO.endLoad();
+})
 
 DSO.defineMode("pip", async (code,input,args,output,debug) => {
     let argstring = args + ' ' + input;
