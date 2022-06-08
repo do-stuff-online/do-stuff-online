@@ -105,6 +105,11 @@
     "name": "APL (ngn/apl)",
     "link": "https://github.com/abrudz/ngn-apl"
   },
+  "pip": {
+    "interpreter": "./langs/pip/pip.js",
+    "name": "Pip",
+    "link": "https://github.com/dloscutoff/pip"
+  },
   "plumber": {
     "interpreter": "./langs/plumber.js",
     "name": "Plumber",
