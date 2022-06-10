@@ -37,7 +37,9 @@ const DSO = {
         $('output').value = '';
         $('debug').value = '';
         await this.activeMode.run(
-            ($('header').value + '\n' ?? '') + $('code').value + ('\n' + $('footer').value ?? ''),
+            ($('header').value ? $('header').value + '\n' : '')
+            + $('code').value +
+            ($('footer').value ? '\n' + $('footer').value : ''),
             $('input').value,
             $('flags').value,
             val => ($('output').value += val, resize($('output'))),
