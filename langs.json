@@ -95,6 +95,12 @@
     "name": "Japt",
     "link": "https://github.com/ETHproductions/japt"
   },
+  "jelly": {
+    "interpreter": "./langs/jelly/jelly.js",
+    "name": "Jelly",
+    "link": "https://github.com/DennisMitchell/jellylanguage/",
+    "bytecount": "./bytecounters/jelly.js"
+  },
   "k-ok": {
     "interpreter": "./langs/k-ok.js",
     "name": "K (oK)",
