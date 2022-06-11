@@ -49,6 +49,12 @@
     "name": "FISHQ9+",
     "link": "https://esolangs.org/wiki/Fishq9+"
   },
+  "flax": {
+    "interpreter": "./langs/flax/flax.js",
+    "name": "Flax",
+    "link": "https://github.com/pygamer0/Flax",
+    "bytecount": "./bytecounters/sbcs.js"
+  },
   "functional-deadfish": {
     "interpreter": "./langs/deadfish/functional-deadfish.js",
     "name": "Functional Deadfish",
@@ -99,13 +105,13 @@
     "interpreter": "./langs/jelly/jelly.js",
     "name": "Jelly",
     "link": "https://github.com/DennisMitchell/jellylanguage/",
-    "bytecount": "./bytecounters/jelly.js"
+    "bytecount": "./bytecounters/sbcs.js"
   },
   "jelly-fork": {
     "interpreter": "./langs/jelly-fork/jelly-fork.js",
     "name": "Jelly (fork)",
     "link": "https://github.com/cairdcoinheringaahing/jellylanguage",
-    "bytecount": "./bytecounters/jelly.js"
+    "bytecount": "./bytecounters/sbcs.js"
   },
   "k-ok": {
     "interpreter": "./langs/k-ok.js",
@@ -115,7 +121,8 @@
   "ngn-apl": {
     "interpreter": "./langs/ngn-apl.js",
     "name": "APL (ngn/apl)",
-    "link": "https://github.com/abrudz/ngn-apl"
+    "link": "https://github.com/abrudz/ngn-apl",
+    "bytecount": "./bytecounters/sbcs.js"
   },
   "pip": {
     "interpreter": "./langs/pip/pip.js",
