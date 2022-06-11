@@ -101,6 +101,12 @@
     "link": "https://github.com/DennisMitchell/jellylanguage/",
     "bytecount": "./bytecounters/jelly.js"
   },
+  "jelly-fork": {
+    "interpreter": "./langs/jelly-fork/jelly-fork.js",
+    "name": "Jelly (fork)",
+    "link": "https://github.com/cairdcoinheringaahing/jellylanguage",
+    "bytecount": "./bytecounters/jelly.js"
+  },
   "k-ok": {
     "interpreter": "./langs/k-ok.js",
     "name": "K (oK)",
