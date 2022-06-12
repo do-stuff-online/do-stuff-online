@@ -51,8 +51,8 @@
   },
   "flax": {
     "interpreter": "./langs/flax/flax.js",
-    "name": "Flax",
-    "link": "https://github.com/pygamer0/Flax",
+    "name": "flax",
+    "link": "https://github.com/pygamer0/flax",
     "bytecount": "./bytecounters/sbcs.js"
   },
   "functional-deadfish": {
