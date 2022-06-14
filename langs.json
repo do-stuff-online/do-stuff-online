@@ -134,6 +134,11 @@
     "name": "Plumber",
     "link": "https://github.com/radvylf/plumber"
   },
+  "positionally": {
+    "interpreter": "./langs/positionally.js",
+    "name": "Positionally",
+    "link": "https://github.com/chunkybanana/positionally/"
+  },
   "print-deadfish": {
     "interpreter": "./langs/deadfish/print-deadfish.js",
     "name": "Print \"deadfish\"",
