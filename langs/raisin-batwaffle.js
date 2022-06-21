@@ -68,14 +68,14 @@ fetch('https://raw.githubusercontent.com/Radvylf/rSNBATWPL/main/rsnbatwpl.js').t
 })
 DSO.defineMode('raisin-batwaffle', async (code,input,args,output,debug) => {
     try {
-        let {prints, out} = await rsnbatwpl(code, input.split`\n`.map(v => {
+        let {sprints} = await rsnbatwpl(code, input.split`\n`.map(v => {
             try {
                 return JSON.parse(v)
             } catch {
                 return v
             }
         }), null, null, debug, true)
-        output(prints+'\n'+out)
+        output(sprints)
     } catch(ex) { 
         debug(ex)
     }
