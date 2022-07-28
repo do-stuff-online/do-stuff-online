@@ -73,13 +73,15 @@ function createLink(type){
     if(type == 'markdown'){
         link = `[Try It Online!](${link})`
     } else if(type == 'codegolf'){
-        link = `# [${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}\n` + 
+        link = `# [${DSO.activeMode.name}], ${formatByteCount()}\n` + 
         `\`\`\`\n${$('code').value}\n\`\`\`\n`+
-        `[Try It Online!](${link})`
+        `[Try It Online!][DSO]\n\n` +
+        `[${DSO.activeMode.name}]: ${DSO.activeMode.link}\n` +
+        `[DSO]: ${link}`
     } else if(type == 'html'){
         link = `<a href="${link}">Try It Online!</a>`
     } else if(type == 'cmc') {
-        link = `[${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}: [\`${$('code').value.replace(/`/g, '\\`')}\`](${link})`
+        link = `[${DSO.activeMode.name}](${DSO.activeMode.link}), ${formatByteCount()}: [\`${$('code').value.replace(/`/g, '\\`')}\`](${link})`
     }
     $('output').value = link;
     toggle($('output'), true)
@@ -90,6 +92,14 @@ function getByteCount(){
         return DSO.activeMode.bytecount(text)
     } else {
         return new Blob([text]).size
+    }
+}
+function formatByteCount() {
+    let byteCount = getByteCount()
+    if (byteCount === 1) {
+        return "1 byte"
+    } else {
+        return "${byteCount} bytes"
     }
 }
 function updateByteCount(){
