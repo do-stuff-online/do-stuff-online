@@ -37,7 +37,7 @@ const DSO = {
         $('output').value = '';
         $('debug').value = '';
         await this.activeMode.run(
-            ($('header').value ? $('header').value + '\n' : '')
+            ($('header-code').value ? $('header-code').value + '\n' : '')
             + $('code').value +
             ($('footer').value ? '\n' + $('footer').value : ''),
             $('input').value,
@@ -52,7 +52,7 @@ const DSO = {
     selectLanguage(hash = location.hash.slice(1)){
         if(hash[0] == '@') {
             let parsed = this.decode(location.hash.slice(2))
-            $('header').value = parsed[1]
+            $('header-code').value = parsed[1]
             $('code').value = parsed[2]
             $('footer').value = parsed[3]
             $('input').value = parsed[4]
@@ -78,7 +78,7 @@ const DSO = {
     makeLink() {
         return location.origin + location.pathname + '#@' + DSO.encode([
             DSO.activeMode.id,
-            $('header').value,
+            $('header-code').value,
             $('code').value, 
             $('footer').value, 
             $('input').value, 
