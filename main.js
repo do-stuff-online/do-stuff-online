@@ -99,7 +99,7 @@ function formatByteCount() {
     if (byteCount === 1) {
         return "1 byte"
     } else {
-        return "${byteCount} bytes"
+        return `${byteCount} bytes`
     }
 }
 function updateByteCount(){
