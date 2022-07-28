@@ -79,7 +79,7 @@ function createLink(type){
     } else if(type == 'html'){
         link = `<a href="${link}">Try It Online!</a>`
     } else if(type == 'cmc') {
-        link = `[${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}: \`${$('code').value.replace(/`/g, '\\`')}\``
+        link = `[${DSO.activeMode.name}](${DSO.activeMode.link}), ${getByteCount()} byte${getByteCount() == 1 ? '' : 's'}: [\`${$('code').value.replace(/`/g, '\\`')}\`](${link})`
     }
     $('output').value = link;
     toggle($('output'), true)
