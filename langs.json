@@ -185,6 +185,11 @@
     "interpreter": "./langs/unsure.js",
     "name": "Unsure",
     "link": "https://github.com/radvylf/unsure"
+  },
+  "knight": {
+    "interpreter": "./langs/knight.js",
+    "name": "Knight",
+    "link": "https://github.com/knight-lang/knight-lang"
   }
 }
   
