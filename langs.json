@@ -117,12 +117,12 @@
     "interpreter": "./langs/k-ok.js",
     "name": "K (oK)",
     "link": "https://github.com/JohnEarnest/ok"
-  },,
+  },
   "knight": {
     "interpreter": "./langs/knight.js",
     "name": "Knight",
     "link": "https://github.com/knight-lang/knight-lang"
-  }
+  },
   "ngn-apl": {
     "interpreter": "./langs/ngn-apl.js",
     "name": "APL (ngn/apl)",
@@ -192,4 +192,3 @@
     "link": "https://github.com/radvylf/unsure"
   }
 }
-  
