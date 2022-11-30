@@ -15,6 +15,8 @@ async def main():
             f.write(text)
 
     from flax.main import flax_run
+    from flax.common import flax_print
     global run
     def run(code, args):
-        flax_run(code, args.to_py())
+        args = args.to_py()
+        flax_print(flax_run(code, *args))
