@@ -8,7 +8,7 @@ os.mkdir("flax")
 async def main():
     files = await fetch("/langs/flax/all.txt")
     files = await files.text()
-    for file in files.split('\n')[:-1]:
+    for file in files.splitlines():
         text = await fetch('https://raw.githubusercontent.com/pygamer0/flax/master/flax/' + file)
         text = await text.text()
         with open('flax/' + file, "w") as f:
