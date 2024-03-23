@@ -5,9 +5,9 @@ pyodide.runPythonAsync(await (await fetch('/langs/pip/loader.py')).text() + '\na
 .then (() => DSO.endLoad());
 
 DSO.defineMode("pip", async (code,input,args,output,debug) => {
-    let argstring = args + ' ' + input;
     try {
-        pyodide.globals.get('pip')(code, argstring)
+        window.pythonInput = input.split`\n`
+        pyodide.globals.get('pip')(code, args)
     } catch (e) {
         console.log(e)
         debug(e)
