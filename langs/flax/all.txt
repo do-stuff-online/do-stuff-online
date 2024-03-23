@@ -1,5 +1,6 @@
 __init__.py
 __main__.py
+atoms.py
 builtins.py
 chains.py
 common.py
@@ -9,3 +10,4 @@ funcs.py
 lexer.py
 main.py
 parser.py
+quicks.py
