@@ -1,7 +1,8 @@
 await loadPyodide();
 DSO.startLoad();
 
-pyodide.runPythonAsync(await (await fetch('/langs/pip/loader.py')).text() + '\nawait main()')
+let loader = location.origin + location.pathname + 'langs/pip/loader.py';
+pyodide.runPythonAsync(await (await fetch(loader)).text() + '\nawait main()')
 .then (() => DSO.endLoad());
 
 DSO.defineMode("pip", async (code,input,args,output,debug) => {
