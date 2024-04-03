@@ -7,3 +7,4 @@ ptypes.py
 scanning.py
 tokens.py
 version.py
+Tao of Pip.txt

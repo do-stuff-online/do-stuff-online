@@ -11,5 +11,5 @@ async def main():
         with open(file, "w") as f:
             f.write(text)
     
-    global pip
-    from pip import pip
+    global runpip
+    from pip import run as runpip
