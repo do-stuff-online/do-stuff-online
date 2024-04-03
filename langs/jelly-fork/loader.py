@@ -1,12 +1,12 @@
 import sys
 sys.path.append('./')
-from js import fetch
+from js import fetch, location
 
 import os
 os.mkdir("jelly")
 
 async def main():
-    files = await fetch("/langs/jelly/all.txt")
+    files = await fetch(location.origin + location.pathname + "langs/jelly/all.txt")
     files = await files.text()
     for file in files.split('\n')[:-1]:
         text = await fetch('https://raw.githubusercontent.com/cairdcoinheringaahing/jellylanguage/master/jelly/' + file)
