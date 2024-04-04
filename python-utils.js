@@ -26,6 +26,12 @@ async function loadPyodide(){
                     return buf.length;
                 }
             });
+            await pyodide.runPythonAsync(`
+from js import fetch
+with open('__python_utils__.py', 'w') as f:
+    f.write(await (await fetch('${DSO.localPath}__python_utils__.py')).text())
+`)
+
             console.log('python (pyodide) loaded in %d seconds', (Date.now() - time) / 1000)
             window.pyodide = pyodide
             DSO.endLoad();

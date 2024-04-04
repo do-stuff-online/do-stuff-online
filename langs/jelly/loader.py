@@ -1,18 +1,12 @@
 import sys
 sys.path.append('./')
-from js import fetch, location
+from __python_utils__ import load_files_from_github
 
 import os
 os.mkdir("jelly")
 
 async def main():
-    files = await fetch(location.origin + location.pathname + "langs/jelly/all.txt")
-    files = await files.text()
-    for file in files.splitlines():
-        text = await fetch('https://raw.githubusercontent.com/DennisMitchell/jellylanguage/master/jelly/' + file)
-        text = await text.text()
-        with open('jelly/' + file, "w") as f:
-            f.write(text)
+    await load_files_from_github("dennismitchell/jellylanguage", "master", r"jelly/.*\.py")
     
     from jelly import code_page, main, try_eval
 

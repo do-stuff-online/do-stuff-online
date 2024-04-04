@@ -97,4 +97,6 @@ const DSO = {
             return [];
         }
     },
+
+    localPath: location.origin + (location.pathname.match(/(.*\/)*/)[0] || '/')
 }

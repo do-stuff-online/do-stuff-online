@@ -3,7 +3,7 @@ await loadPyodide();
 
 pyodide.loadPackage(['mpmath', 'more-itertools'])
 
-let loader = location.origin + location.pathname + 'langs/flax/loader.py';
+let loader = DSO.localPath + 'langs/flax/loader.py';
 pyodide.runPythonAsync(await (await fetch(loader)).text() + '\nawait main()')
 .then (() => DSO.endLoad());
 
