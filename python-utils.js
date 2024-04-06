@@ -29,7 +29,7 @@ async function loadPyodide(){
             await pyodide.runPythonAsync(`
 from js import fetch
 with open('__python_utils__.py', 'w') as f:
-    f.write(await (await fetch('${DSO.localPath}__python_utils__.py')).text())
+    f.write(await (await fetch('${DSO.localPath}python_utils.py')).text())
 `)
 
             console.log('python (pyodide) loaded in %d seconds', (Date.now() - time) / 1000)
