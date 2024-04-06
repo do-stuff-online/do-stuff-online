@@ -6,31 +6,47 @@ const DSO = {
             run: run
         }
     },
+    modeList: {},
     modes: {},
-    async loadMode(id){
-        mode = modeList[id]
-        let counter;
-        if(!this.modes[id]){
-            await import(mode.interpreter);
-            if(mode.bytecount){
-                counter = await import(mode.bytecount)
-                mode.bytecount = counter.count
+    async loadMode(id) {
+        if (this.modeList.hasOwnProperty(id)) {
+            let mode = this.modeList[id];
+            $('select').value = id;
+            $('homepage-link').href = mode.link;
+            let counter;
+            if(!this.modes[id]){
+                await import(mode.interpreter);
+                if(mode.bytecount){
+                    counter = await import(mode.bytecount)
+                    mode.bytecount = counter.count
+                }
             }
+            this.activeMode = {
+                id: id,
+                ...mode,
+                run: this.modes[id]
+            }
+            if(mode.bytecount){
+                this.activeMode.bytecount = mode.bytecount;
+                updateByteCount()
+            }
+        } else {
+            // id is blank or isn't a valid language
+            if (id) {
+                this.langNotFound(id);
+            }
+            $('select').value = '';
+            $('homepage-link').href = '';
+            this.activeMode = {id: ''};
         }
-        this.activeMode = {
-            id: id,
-            ...mode,
-            run: this.modes[id] 
-        }
-        if(mode.bytecount){
-            this.activeMode.bytecount = mode.bytecount;
-            updateByteCount()
-        }
-        $('homepage-link').href = mode.link;
-        $('select').value = id;
     },
-    activeMode: {},
-    async run(){
+    activeMode: {id: ''},
+    async run() {
+        if (!this.activeMode.run) {
+            // No language selected
+            $('select').focus();
+            return;
+        }
         let runButton = $('run-button');
         if(runButton.innerHTML.includes('fa-spin')) return;
         runButton.innerHTML = '<i class="fa fa-cog fa-spin fa-2x"></i>';
@@ -60,8 +76,8 @@ const DSO = {
             DSO.loadMode(parsed[0])
             updateByteCount()
         } else {
-            DSO.loadMode(hash || 'brainfuck');  
-            location.hash = '#' + hash 
+            DSO.loadMode(hash);
+            location.hash = '#' + hash;
         }
     },
     startLoad(){

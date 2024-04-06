@@ -39,6 +39,9 @@ body{
 .narrow-icon{
     width: 100px;
 }
+option[value=""][disabled] {
+    display: none;
+}
 .linkless {
     color: white;
     text-decoration: none;

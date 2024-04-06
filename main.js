@@ -1,12 +1,26 @@
 const $ = x => document.getElementById(x)
 fetch('./langs.json')
 .then(x => x.json())
-.then(value => modeList = value)
-.then(value => {
-    for(key in value){
+.then(langs => DSO.modeList = langs)
+.then(langs => {
+    // Sort the languages by name, case-insensitive
+    langs = Object.entries(langs);
+    langs.sort((langA, langB) => {
+        const nameA = langA[1].name.toLowerCase();
+        const nameB = langB[1].name.toLowerCase();
+        if (nameA < nameB) {
+            return -1;
+        } else if (nameA > nameB) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    // Populate the language dropdown
+    for([key, value] of langs) {
         let option = document.createElement('option');
         option.value = key;
-        option.innerText = value[key].name;
+        option.innerText = value.name;
         $('select').appendChild(option);
     }
 })

@@ -24,8 +24,13 @@
             <i class="fa fa-play-circle" style="cursor: pointer;"></i>
         </div>
     
-        <div class=header-item>Select language <i class="fa fa-cog fa-spin" id="lang-loader" style="display: none"></i><br>
-            <select id=select oninput="DSO.selectLanguage(this.value)"></select>
+        <div class="header-item">
+            <label for="select">Select language</label>
+            <i class="fa fa-cog fa-spin" id="lang-loader" style="display: none"></i>
+            <br>
+            <select id="select" oninput="DSO.selectLanguage(this.value)">
+                <option value="" disabled selected>-- none selected --</option>
+            </select>
             <a id="homepage-link" target="_blank"><i class="fa fa-link size-12 linkless"></i></a>
         </div>
         <div class="header-item narrow-icon header-icon" id="invisible-block"></div>
