@@ -13,11 +13,10 @@ const DSO = {
             let mode = this.modeList[id];
             $('select').value = id;
             $('homepage-link').href = mode.link;
-            let counter;
             if(!this.modes[id]){
                 await import(mode.interpreter);
                 if(mode.bytecount){
-                    counter = await import(mode.bytecount)
+                    let counter = await import(mode.bytecount)
                     mode.bytecount = counter.count
                 }
             }
@@ -73,8 +72,8 @@ const DSO = {
             $('footer').value = parsed[3]
             $('input').value = parsed[4]
             $('flags').value = parsed[5]
-            DSO.loadMode(parsed[0])
             updateByteCount()
+            DSO.loadMode(parsed[0])
         } else {
             DSO.loadMode(hash);
             location.hash = '#' + hash;

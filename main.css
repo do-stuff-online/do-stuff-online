@@ -12,15 +12,6 @@ body{
     font-family: 'Arial';
     color: #ffffff;
 }
-.accordion.active::before{
-    content: '\25bc  '
-}
-.accordion:not(.active)::before{
-    content: '\25b6  ';
-}
-.accordion::before{
-    font-size: 12px;
-}
 .header{
     width: 100%;
     height: 40px;
