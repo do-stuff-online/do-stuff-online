@@ -1,5 +1,6 @@
 textarea{
     width: 100%;
+    resize: none;
     background-color: #1e1e1e;
     font-size: 16px;
     border: none;
@@ -11,15 +12,6 @@ body{
     font-size: 18px;
     font-family: 'Arial';
     color: #ffffff;
-}
-.accordion.active::before{
-    content: '\25bc  '
-}
-.accordion:not(.active)::before{
-    content: '\25b6  ';
-}
-.accordion::before{
-    font-size: 12px;
 }
 .header{
     width: 100%;
@@ -38,6 +30,9 @@ body{
 
 .narrow-icon{
     width: 100px;
+}
+option[value=""][disabled] {
+    display: none;
 }
 .linkless {
     color: white;
