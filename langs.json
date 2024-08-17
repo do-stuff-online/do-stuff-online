@@ -180,6 +180,11 @@
     "name": "Tarfish",
     "link": "https://github.com/chunkybanana/Tarfish"
   },
+  "tinylisp2": {
+    "interpreter": "./langs/tinylisp2/tinylisp2.js",
+    "name": "tinylisp 2",
+    "link": "https://github.com/dloscutoff/tinylisp2"
+  },
   "ultrarisky": {
     "interpreter": "./langs/ultrarisky.js",
     "name": "Ultrarisky",
