@@ -26,6 +26,7 @@ async function loadPyodide(){
                     return buf.length;
                 }
             });
+            await pyodide.loadPackage(['sympy']);
             await pyodide.runPythonAsync(`
 from js import fetch
 with open('__python_utils__.py', 'w') as f:

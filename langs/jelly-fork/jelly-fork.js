@@ -1,8 +1,6 @@
 await loadPyodide();
 DSO.startLoad();
 
-await pyodide.loadPackage(['sympy'])
-
 let loader = DSO.localPath + 'langs/jelly-fork/loader.py';
 pyodide.runPythonAsync(await (await fetch(loader)).text() + '\nawait main()')
 .then (() => DSO.endLoad());
