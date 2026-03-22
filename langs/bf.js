@@ -1,4 +1,15 @@
 DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
+    const Usage = (
+`Flags:
+    6     Use 16-bit integer instead of 8-bit for data type.
+    t     Use only 256 cells of tape instead of Infinity.
+    T     Use only 65536 cells of tape instead of Infinity.
+    c     Show the transpiled code before execution.`
+    );
+    if (args.includes("--help") || args.includes("--usage")) {
+	debug(Usage);
+	return;
+    }
     var tape = [0],tapeIndex = 0,tapeLimit = Infinity,cellLimit = 256,inputIndex = 0,brackets = [];
     input = [...input]
     if(args.includes('6')) cellLimit = 65536;
@@ -21,5 +32,9 @@ DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
         }
     }
     if(args.includes('c')) debug(transpiled);
-    eval(transpiled);
+    try {
+        eval(transpiled);
+    } catch (e) {
+	debug(e);
+    }
 })
