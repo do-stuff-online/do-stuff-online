@@ -21,5 +21,9 @@ DSO.defineMode('brainfuck',async (code,input,args,output,debug) => {
         }
     }
     if(args.includes('c')) debug(transpiled);
-    eval(transpiled);
+    try {
+        eval(transpiled);
+    } catch (e) {
+	debug(e);
+    }
 })
